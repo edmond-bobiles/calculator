@@ -1,3 +1,19 @@
+const numbersButton = document.querySelectorAll("#buttons .number");
+const operatorButton = document.querySelectorAll("#buttons .operator");
+const equalButton = document.querySelector("#equal");
+const clearButton = document.querySelector("#clear");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+
+    });
+});
+
+let num1 = 0;
+let num2 = 0;
+let operator;
+
+
 function add (num1, num2){
     return num1 + num2;
 }
@@ -13,10 +29,6 @@ function multiply (num1, num2){
 function divide (num1, num2){
     return num1 / num2;
 }
-
-let num1 = 0;
-let num2 = 0;
-let operator;
 
 function operate(operator, num1, num2){
     if (operator == '+'){
