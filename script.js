@@ -7,6 +7,29 @@ const equalButton = document.querySelector("#equal");
 const buttons = document.querySelectorAll("#buttons button");
 const display = document.querySelector("#display");
 
+
+document.addEventListener("keydown", (event) => {
+    const button = [...buttons].find(
+        button => button.textContent === event.key
+    );
+
+    if (event.key === "Enter") {
+        equalButton.click();
+    }
+
+    if (event.key === "Backspace") {
+        backspaceButton.click();
+    }
+
+    if (event.key === "Escape") {
+        clearButton.click();
+    }
+
+    if (button) {
+        button.click();
+    }
+});
+
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         // Adds number
