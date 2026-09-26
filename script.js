@@ -7,21 +7,41 @@ const display = document.querySelector("#display");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
+        // Adds number
         if(button.classList.contains("number")){
-            num1 += button.textContent;
-            display.textContent = num1;
+            if (operator === ""){
+                num1 += button.textContent;
+                display.textContent = num1;
+            }
+            else {
+                num2 += button.textContent;
+                let nul = button.textContent;
+                display.textContent += nul;
+            }
         }
+        
+        // Adds operator
         if(button.classList.contains("operator")){
-            if (num1 !== ""){
+            if (num1 === ""){
+                num1 = "";
+                operator = "";
+                num2 = "";
+                display.textContent = "Error. No number input.";
+            }
+            else {
                 operator = button.textContent;
                 display.textContent += operator;
             }
         }
-        if(button.id === "equal"){
-            if (num1 === "" || operator === "" || num2 === ""){
 
+        // Perform calculation
+        if(button.id === "equal"){
+            if (num1 !== "" || operator !== "" || num2 !== ""){
+                display.textContent = operate(operator, num1, num2);
             }
         }
+
+        // Clears the display
         if(button.id === "clear"){
             num1 = "";
             operator = "";
@@ -35,21 +55,21 @@ let num1 = "";
 let num2 = "";
 let operator;
 
-
+// Calculator logic
 function add (num1, num2){
-    return num1 + num2;
+    return Number(num1) + Number(num2);
 }
 
 function subtract (num1, num2){
-    return num1 - num2;
+    return Number(num1) - Number(num2);
 }
 
 function multiply (num1, num2){
-    return num1 * num2;
+    return Number(num1) * Number(num2);
 }
 
 function divide (num1, num2){
-    return num1 / num2;
+    return Number(num1) / Number(num2);
 }
 
 function operate(operator, num1, num2){
