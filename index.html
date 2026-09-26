@@ -4,40 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <title>Calculator</title>
-
-
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JS Script -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <div id="calculator">
-        <div id ="display"></div>
-        <div id = "buttons">
-            <!-- Numbers -->
-            <button class="number">1</button>
-            <button class="number">2</button>
-            <button class="number">3</button>
-            <button class="number">4</button>
-            <button class="number">5</button>
-            <button class="number">6</button>
-            <button class="number">7</button>
-            <button class="number">8</button>
-            <button class="number">9</button>
-            <button class="number">0</button>
+        <div id="display"></div>
+        <div id="buttons">
+            <button class="number btn btn-secondary">1</button>
+            <button class="number btn btn-secondary">2</button>
+            <button class="number btn btn-secondary">3</button>
+            <button class="operator btn btn-warning">+</button>
 
-            <!-- Operators -->
-            <button class="operator">+</button>
-            <button class="operator">-</button>
-            <button class="operator">*</button>
-            <button class="operator">/</button>
+            <button class="number btn btn-secondary">4</button>
+            <button class="number btn btn-secondary">5</button>
+            <button class="number btn btn-secondary">6</button>
+            <button class="operator btn btn-warning">-</button>
 
-            <!-- Other -->
-            <button id="dot">.</button>
-            <button id="backspace">⌫</button>
-            <button id="clear">Clear</button>
-            <button id="equal">=</button>
+            <button class="number btn btn-secondary">7</button>
+            <button class="number btn btn-secondary">8</button>
+            <button class="number btn btn-secondary">9</button>
+            <button class="operator btn btn-warning">*</button>
+
+            <button id="dot" class="btn btn-secondary">.</button>
+            <button class="number btn btn-secondary">0</button>
+            <button id="backspace" class="btn btn-outline-light">⌫</button>
+            <button class="operator btn btn-warning">/</button>
+
+            <button id="clear" class="btn btn-danger">Clear</button>
+            <button id="equal" class="btn btn-success">=</button>
         </div>
     </div>
+
+    <!-- Bootstrap JS (optional, harmless to keep) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
