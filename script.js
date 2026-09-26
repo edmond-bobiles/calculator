@@ -16,27 +16,36 @@ buttons.forEach(button => {
             else {
                 num2 += button.textContent;
                 let nul = button.textContent;
-                display.textContent += nul;
+                display.textContent = nul;
             }
         }
         
         // Adds operator
         if(button.classList.contains("operator")){
+            // If first number is empty
             if (num1 === ""){
                 num1 = "";
                 operator = "";
                 num2 = "";
                 display.textContent = "Error. No number input.";
             }
-            else {
+            // If operator and second number is empty (initial calculation)
+            if (operator === "" && num2 === ""){
                 operator = button.textContent;
-                display.textContent += operator;
+            }
+
+            // If another operator is added
+            else {
+                num1 = operate(operator, num1, num2);
+                num2 = "";
+                display.textContent = num1;
+                operator = button.textContent;
             }
         }
 
         // Perform calculation
         if(button.id === "equal"){
-            if (num1 !== "" || operator !== "" || num2 !== ""){
+            if (num1 !== "" && operator !== "" && num2 !== ""){
                 display.textContent = operate(operator, num1, num2);
             }
         }
