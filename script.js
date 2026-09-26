@@ -15,8 +15,7 @@ buttons.forEach(button => {
             }
             else {
                 num2 += button.textContent;
-                let nul = button.textContent;
-                display.textContent = nul;
+                display.textContent = num2;
             }
         }
         
@@ -30,13 +29,13 @@ buttons.forEach(button => {
                 display.textContent = "Error. No number input.";
             }
             // If operator and second number is empty (initial calculation)
-            if (operator === "" && num2 === ""){
+            else if (operator === "" && num2 === ""){
                 operator = button.textContent;
             }
 
             // If another operator is added
             else {
-                num1 = operate(operator, num1, num2);
+                num1 = roundResult(operate(operator, num1, num2));
                 num2 = "";
                 display.textContent = num1;
                 operator = button.textContent;
@@ -46,7 +45,7 @@ buttons.forEach(button => {
         // Perform calculation
         if(button.id === "equal"){
             if (num1 !== "" && operator !== "" && num2 !== ""){
-                display.textContent = operate(operator, num1, num2);
+                display.textContent = roundResult(operate(operator, num1, num2));
             }
         }
 
@@ -62,7 +61,7 @@ buttons.forEach(button => {
 
 let num1 = "";
 let num2 = "";
-let operator;
+let operator = "";
 
 // Calculator logic
 function add (num1, num2){
@@ -78,6 +77,12 @@ function multiply (num1, num2){
 }
 
 function divide (num1, num2){
+    if (Number(num2) === 0) {
+        num1 = "";
+        operator = "";
+        num2 = "";
+        return display.textContent = "You rat!";
+    }
     return Number(num1) / Number(num2);
 }
 
@@ -99,3 +104,6 @@ function operate(operator, num1, num2){
     }
 }
 
+function roundResult(result) {
+    return Number(result.toFixed(5));
+}
