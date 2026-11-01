@@ -96,11 +96,22 @@ buttons.forEach(button => {
 });
 
 document.addEventListener("keydown", event => {
-    const key = event.key;
+    if (event.ctrlKey || event.altKey || event.metaKey) return;
+
+    const numpadKeys = {
+        NumpadDivide: "/",
+        NumpadMultiply: "*",
+        NumpadSubtract: "-",
+        NumpadAdd: "+",
+        NumpadDecimal: ".",
+        NumpadEnter: "Enter",
+    };
+    const aliases = { "÷": "/", "×": "*" };
+    const key = numpadKeys[event.code] || aliases[event.key] || event.key;
     const button = [...buttons].find(button => button.textContent === key);
     if (key === "Enter" || key === "=") document.querySelector("#equal").click();
     else if (key === "Backspace") document.querySelector("#backspace").click();
-    else if (key === "Escape") document.querySelector("#clear").click();
+    else if (key === "Escape" || key === "Delete") document.querySelector("#clear").click();
     else if (button) button.click();
     else return;
     event.preventDefault();
