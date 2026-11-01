@@ -13,7 +13,7 @@ cd calculator
 
 ## Usage
 
-- Enter numbers and choose `+`, `-`, `*`, or `/`, then press `=` to calculate.
+- Enter numbers and choose `+`, `-`, `*`, or `/`, then press `=` to calculate. The full expression stays visible, and chained operations are evaluated from left to right.
 - Use the decimal point, backspace, and Clear buttons to edit input.
 - On the keyboard, use the number and operator keys, Enter for equals, Backspace to delete, and Escape to clear.
 
